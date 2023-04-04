@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE">
+    <CLASSES>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

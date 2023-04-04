@@ -1,0 +1,46 @@
+CREATE TABLE USER (
+    id BIGINT PRIMARY KEY COMMENT '用户ID',
+    nickname VARCHAR(50) NOT NULL COMMENT '昵称',
+    phone VARCHAR(20) NOT NULL COMMENT '手机号码',
+    deleted INT NOT NULL DEFAULT 0 COMMENT '是否逻辑删除（0-未删除，1-已删除）',
+    created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最近更新时间'
+) COMMENT '用户表';
+
+CREATE TABLE wallet (
+    id BIGINT PRIMARY KEY COMMENT '钱包ID',
+    user_id BIGINT NOT NULL COMMENT '用户ID',
+    balance DECIMAL(10, 2) NOT NULL DEFAULT '0.00' COMMENT '钱包余额',
+    deleted INT NOT NULL DEFAULT 0 COMMENT '是否逻辑删除（0-未删除，1-已删除）',
+    created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最近更新时间',
+    FOREIGN KEY (user_id) REFERENCES USER (id)
+) COMMENT '钱包表';
+
+CREATE TABLE wallet_detail (
+    id BIGINT PRIMARY KEY COMMENT '变动ID',
+    user_id BIGINT NOT NULL COMMENT '用户ID',
+    wallet_id BIGINT NOT NULL COMMENT '钱包ID',
+    amount DECIMAL(10, 2) NOT NULL COMMENT '变动金额',
+    TYPE VARCHAR(20) NOT NULL COMMENT '变动类型（充值、消费、退款、提现等等）',
+    deleted INT NOT NULL DEFAULT 0 COMMENT '是否逻辑删除（0-未删除，1-已删除）',
+    created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最近更新时间',
+    FOREIGN KEY (user_id) REFERENCES USER (id),
+    FOREIGN KEY (wallet_id) REFERENCES wallet (id)
+) COMMENT '钱包变动明细表';
+-- USER表
+INSERT INTO USER (id, nickname, phone, deleted, created_time, updated_time) VALUES 
+(10001, '张三', '13888888888', 0, '2021-09-01 10:30:00', '2021-09-01 10:30:00'),
+(10002, '李四', '13999999999', 0, NOW(), NOW());
+
+-- WALLET表
+INSERT INTO wallet (id, user_id, balance, deleted, created_time, updated_time) VALUES 
+(1, 10001, 1000.00, 0, NOW(), NOW()),
+(2, 10002, 2000.00, 0, NOW(), NOW());
+
+-- WALLET_DETAIL表
+INSERT INTO wallet_detail (id, user_id, wallet_id, amount, TYPE, deleted, created_time, updated_time) VALUES 
+(1, 10001, 1, 1000.00, '充值', 0, NOW(), NOW()),
+(2, 10001, 1, -500.00, '消费', 0, NOW(), NOW()),
+(3, 10002, 2, 2000.00, '充值', 0, NOW(), NOW());

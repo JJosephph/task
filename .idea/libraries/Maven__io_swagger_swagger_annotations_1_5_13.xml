@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.swagger:swagger-annotations:1.5.13">
+    <CLASSES>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/io/swagger/swagger-annotations/1.5.13/swagger-annotations-1.5.13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/io/swagger/swagger-annotations/1.5.13/swagger-annotations-1.5.13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/文件/专业学习/Java/离线仓库/apache-maven-3.8.4/conf/repository/io/swagger/swagger-annotations/1.5.13/swagger-annotations-1.5.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
